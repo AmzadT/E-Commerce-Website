@@ -24,7 +24,7 @@ const Login = () => {
           localStorage.setItem('token', response.data.token)
           toast.success('Registration SuccessFull ✅')
         } else {
-          console.log(response.data)
+          console.log("Response Data:", response.data)
           toast.error(response.data.message || "Something went wrong, for the Sign-Up please try again.")
         }
 

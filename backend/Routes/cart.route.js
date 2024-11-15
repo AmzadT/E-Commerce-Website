@@ -4,11 +4,11 @@ const {addToCart, updateCart, getUserCart} = require('../Controllers/cart.contro
 const authUser = require('../Middlewares/auth')
 
 
-cartRouter.get('/get', authUser, getUserCart)
+cartRouter.get('/get', getUserCart)
 
-cartRouter.post('/add', authUser, addToCart)
+cartRouter.post('/add', addToCart)
 
-cartRouter.patch('/update', authUser, updateCart)
+cartRouter.patch('/update', updateCart)
 
 
 module.exports = cartRouter
