@@ -15,7 +15,6 @@ const Verify = () => {
     const verifyPayment = async ()=>{
         try {
             if (!token) {
-                // toast.error('Token not found')
                 return null;
             }
 
@@ -28,7 +27,7 @@ const Verify = () => {
             console.log(response.data)
 
             if(response.data.success){
-                // toast.success('Payment Verified Successfully')
+                toast.success('Payment Verified Successfully')
                 setCartItems({})
                 navigate('/orders')
             }else{

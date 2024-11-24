@@ -18,17 +18,6 @@ const AddProduct = async (req, res) => {
             })
         );
 
-        // const productData = await productModel.create({
-        //     name,
-        //     price: Number(price),
-        //     description,
-        //     image: imagesUrl,
-        //     category,
-        //     subCategory,
-        //     sizes: JSON.parse(sizes),
-        //     bestseller: bestseller === 'true' ? true : false,
-        //     date: Date.now(),
-        // });
 
         const productData = {
             name,
@@ -56,7 +45,7 @@ const AddProduct = async (req, res) => {
 const ListProducts = async (req, res) => {
     try {
         const products = await productModel.find()
-        if(products.length < 0){
+        if (products.length < 0) {
             return res.status(404).json({ success: false, message: 'No products found' })
         }
         res.status(200).json({ success: true, products })
@@ -67,9 +56,26 @@ const ListProducts = async (req, res) => {
 }
 
 
+
+const RemoveProduct = async (req, res) => {
+    try {
+        const id = req.params.id; 
+        const product = await productModel.findByIdAndDelete(id); 
+        if (!product) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+        res.status(200).json({ success: true, message: 'Product removed successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+
+
 const SingleProduct = async (req, res) => {
     try {
-        const {productId} = req.body;
+        const { productId } = req.body;
         const product = await productModel.findById(productId)
         if (!product) {
             return res.status(404).json({ success: false, message: 'Product not found' })
@@ -83,7 +89,7 @@ const SingleProduct = async (req, res) => {
 
 
 
-const UpdateProduct = async (req, res) => {
+const UpdateProduct = async (req, res) => {  // no need of this route
     if (!req.bbody) {
         return res.status(400).json({ success: false, message: 'No data provided please fill all the required fields' });
     }
@@ -101,18 +107,6 @@ const UpdateProduct = async (req, res) => {
 }
 
 
-const RemoveProduct = async (req, res) => {
-    try {
-        const id = req.body.id
-        await productModel.findByIdAndDelete(id)
-        // if (!product) {
-        //     return res.status(404).json({ success: false, message: 'Product not found' })
-        // }
-        res.status(200).json({ success: true, message: 'Product removed successfully' })
-    } catch (error) {
-        console.error(error)
-        res.status(500).json({ success: false, message: error.message })
-    }
-}
+
 
 module.exports = { AddProduct, ListProducts, RemoveProduct, SingleProduct, UpdateProduct };

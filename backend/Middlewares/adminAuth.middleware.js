@@ -10,7 +10,6 @@ const adminAuth = async (req, res, next) => {
         if (decoded !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
             return res.status(401).json({ success: false, message: 'You are not authorized to access this route, Invalid token, please login again' })
         }
-        // req.user = decoded
         next()
         
     } catch (error) {

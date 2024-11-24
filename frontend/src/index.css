@@ -32,3 +32,14 @@ a.active hr {
     color: white;
   }
 }
+
+
+
+
+
+.hover\:bg-gray-100:hover {
+  background-color: #f3f4f6; /* Light gray background on hover */
+}
+.text-md {
+  font-size: 1rem; /* Adjusted for consistency */
+}

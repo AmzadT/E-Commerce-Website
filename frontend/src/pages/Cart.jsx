@@ -28,7 +28,7 @@ const Cart = () => {
     }
 
 
-  }, [cartItems, products]) // products not required
+  }, [cartItems, products])
 
   return (
     <div className="border-t pt-14">
@@ -53,8 +53,23 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                <input onChange={(event) => event.target.value === '' || event.target.value === '0' ? null : updateQuantity(item._id, item.size, Number(event.target.value))} type="number" min={1} defaultValue={item.quantity} className="border max-w-10 sm:max-w-20 px-1 sm:px-2 py-1" />
-                <img onClick={() => updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} className="w-4 mr-4 sm:w-5 cursor-pointer" />
+
+                <div className="flex items-center border border-gray-200 max-w-[100px] sm:max-w-[150px] px-2 py-1 rounded-lg">
+
+                  <button onClick={() => item.quantity > 1 && updateQuantity(item._id, item.size, item.quantity - 1)} className="bg-red-500 text-white font-medium px-2 py-1 rounded-l hover:bg-red-600"
+                  >-</button>
+
+                  <span className="text-center flex-1 text-gray-700 font-semibold">{item.quantity}</span>
+
+                  <button
+                    onClick={() => updateQuantity(item._id, item.size, item.quantity + 1)}
+                    className="bg-green-500 text-white font-medium px-2 py-1 rounded-r hover:bg-green-600"
+                  >+</button>
+
+                </div>
+
+                  <img onClick={() => updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} className="w-4 mr-4 sm:w-5 cursor-pointer" />
+
               </div>
             )
           })

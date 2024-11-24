@@ -20,12 +20,12 @@ const SearchBar = () => {
 
 
     return showSearch && visible ? (
-        <div className="border-t border-b bg-gray-50 text-center">
-            <div className="inline-flex justify-center items-center border border-gray-400 py-2 px-5 my-5 mx-3 rounded-full w-3/4 sm:w-1/2 ">
-               <input value={search} onChange={(event)=> setSearch(event.target.value)} className="flex-1 outline-none bg-inherit text-sm" type="text" placeholder="Search..."/>
-               <img className="w-4" src={assets.search_icon}/>
+        <div className="border-t border-b bg-gray-100 text-center -mt-5">
+            <div className="inline-flex justify-center items-center border border-gray-500 py-2 px-5 my-5 mx-3 rounded-full w-3/4 sm:w-1/2 ">
+               <input value={search} onChange={(event)=> setSearch(event.target.value)} className="flex-1 outline-none bg-inherit text-md placeholder-gray-800" type="text" placeholder="Search..."/>
+               <img className="w-4 text-black" src={assets.search_icon}/>
             </div>
-            <img onClick={()=> setShowSearch(false)} className="inline w-3 cursor-pointer" src={assets.cross_icon} />
+            <img onClick={()=> setShowSearch(false)} className="inline w-4 cursor-pointer" src={assets.cross_icon} />
         </div>
     ) : null
 }

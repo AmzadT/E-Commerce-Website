@@ -24,21 +24,23 @@ const List = ({token}) => {
   }
 
 
-  const removeProduct = async(id)=>{
+  const removeProduct = async (id) => {
     try {
-      const response = await axios.delete(backendUrl + `/api/products/remove/${id}`, {headers: {token}})
-      console.log(response.data)
-      if(response.data.success){
-        toast.success('Product Removed successFully ✅')
-        fetchList()
-      }else{
-        toast.error(response.data.message)
-      }
+        const response = await axios.post(backendUrl + `/api/products/remove/${id}`,{}, { headers: { token } } 
+        );
+        console.log(response.data);
+        if (response.data.success) {
+            await fetchList();
+            toast.success('Product Removed successfully ✅');
+        } else {
+            toast.error(response.data.message);
+        }
     } catch (error) {
-      console.error(error);
-      toast.error(error.message)
+        console.error(error);
+        toast.error(error.message);
     }
-  }
+};
+
 
   useEffect(() => {
     fetchList()
@@ -65,7 +67,6 @@ const List = ({token}) => {
         {
           list.map((item, index)=>(
             <div key={index} className="grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-2 px-3 border text-sm">
-            {/* <img src={item.image} className="w-14" />  */}
                <img src={item.image[0]} className="w-14" /> 
                <p>{item.name}</p>
                <p>{item.category}</p>

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { assets } from "../assets/assets"
 import { toast } from "react-toastify"
 import axios from "axios"
-import { backendUrl } from "../App"
+import {backendUrl}  from "../App"
 
 const Add = ({ token }) => {
 
@@ -14,8 +14,8 @@ const Add = ({ token }) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
-  const [category, setCategory] = useState('')  // men
-  const [subCategory, setSubCategory] = useState('')  // topwear
+  const [category, setCategory] = useState('')  
+  const [subCategory, setSubCategory] = useState('') 
   const [bestseller, setBestseller] = useState(false)
   const [sizes, setSizes] = useState([])
 
@@ -114,7 +114,7 @@ const Add = ({ token }) => {
             <option value="">Select Category</option>
             <option value="Men">Men</option>
             <option value="Women">Women</option>
-            <option value="Kids">Kid's</option>
+            <option value="Kids">Kids</option>
           </select>
         </div>
 

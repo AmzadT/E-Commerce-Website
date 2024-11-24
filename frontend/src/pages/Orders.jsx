@@ -13,12 +13,11 @@ const Orders = () => {
   const getOrderData = async () => {
     try {
       if (!token) {
-        // toast.error('Please login to view your orders')
         return null;
       }
 
       // Make API call to get order data using token
-      const response = await axios.get(`${backendUrl}/api/orders/user-orders`,{}, {
+      const response = await axios.post(`${backendUrl}/api/orders/user-orders`,{}, {
         headers: {token} 
       })
       console.log(response.data)

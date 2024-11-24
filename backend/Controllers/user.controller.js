@@ -12,11 +12,10 @@ const UserRegister = async (req, res) => {
 
     try {
         const { name, email, password } = req.body;
-        console.log(name, email, password)
         const userExist = await userModel.findOne({ email })
 
         if (userExist) {
-            return res.status(400).json({ success: false, message: "User already exists" })
+            return res.status(400).json({ success: false, message: "User already exist" })
         }
 
         if (!validator.isEmail(email)) {

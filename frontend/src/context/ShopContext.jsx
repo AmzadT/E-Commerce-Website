@@ -47,6 +47,7 @@ const ShopContextProvider = ({children}) => {
         }
     }
 
+
     const cartCount = () => {
         var totalCount = 0;
         for (const items in cartItems) {
@@ -65,16 +66,15 @@ const ShopContextProvider = ({children}) => {
         return totalCount
     }
 
+
     const updateQuantity = async (itemId, size, quantity) => {
         var cartData = structuredClone(cartItems)
         cartData[itemId][size] = quantity
         setCartItems(cartData)
 
-        // localStorage.setItem('cartItems', JSON.stringify(cartData))
-
         if (token) {
             try {
-                await axios.patch(backendUrl + '/api/cart/update', { itemId, size, quantity }, {headers: {token}})
+                await axios.post(backendUrl + '/api/cart/update', { itemId, size, quantity }, {headers: {token}})
             } catch (error) {
                 console.log(error)
                 toast.error(error.message)
@@ -104,7 +104,7 @@ const ShopContextProvider = ({children}) => {
     const fetchProductsData = async () => {
         try {
             const response = await axios.get(backendUrl + '/api/products/list')
-            console.log(response.data);
+            console.log(response.data.products);
             if (response.data.success) {
                 setProducts(response.data.products)
             } else {
@@ -122,16 +122,17 @@ const ShopContextProvider = ({children}) => {
             const response = await axios.post(backendUrl + '/api/cart/get', {}, {headers: {token}})
             console.log(response.data);
             if (response.data.success) {
-                setCartItems(response.data.cartData)
-            } else {
-                toast.error(response.data.message)
-            }
+                return setCartItems(response.data.cartData)
+            } 
 
         } catch (error) {
             console.log(error)
             toast.error(error.message)
         }
     }
+
+
+   
 
     useEffect(() => {
         fetchProductsData()
@@ -143,6 +144,7 @@ const ShopContextProvider = ({children}) => {
             getUserCart(localStorage.getItem('token'))
         }
     }, [])
+
 
     const value = {
         products,

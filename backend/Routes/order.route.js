@@ -7,14 +7,14 @@ const authUser = require('../Middlewares/auth')
 orderRouter.post('/list', adminAuth ,allOrders)
 orderRouter.post('/status', adminAuth ,updateStatus)
 
-orderRouter.post('/place-COD', placeOrderCOD)
-orderRouter.post('/place-stripe', placeOrderStripe)
-orderRouter.post('/place-razorpay', placeOrderRazorpay)
+orderRouter.post('/place-COD',authUser, placeOrderCOD)
+orderRouter.post('/place-stripe',authUser, placeOrderStripe)
+orderRouter.post('/place-razorpay',authUser, placeOrderRazorpay)
 
-orderRouter.get('/user-orders', userOrders)
+orderRouter.post('/user-orders',authUser, userOrders)
 
-orderRouter.post('/verify-stripe' ,verifyStripe)
+orderRouter.post('/verify-stripe' ,authUser,verifyStripe)
 
-orderRouter.post('/verify-razorpay', verifyRazorpay)
+orderRouter.post('/verify-razorpay',authUser, verifyRazorpay)
 
 module.exports = orderRouter

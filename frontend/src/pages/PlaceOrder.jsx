@@ -96,7 +96,7 @@ const PlaceOrder = () => {
 
         case 'cod':
           try {
-            const response = await axios.post(backendUrl +  `/api/orders/place-COD`, orderData, {
+            const response = await axios.post(backendUrl +  '/api/orders/place-COD', orderData, {
               headers: {token}
             });
             console.log(response.data)
@@ -142,8 +142,6 @@ const PlaceOrder = () => {
             console.log(responseRazorpay.data)
             if (responseRazorpay.data.success) {
               initPay(responseRazorpay.data.order)
-              // const {payment_link} = responseRazorpay.data
-              // window.location.replace(payment_link)
             } else {
               toast.error(`Failed to place the order: ${responseRazorpay.data.message}`);
             }
@@ -210,7 +208,7 @@ const PlaceOrder = () => {
 
             <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
               <p className={`min-w-4 h-4 border rounded-full ${method === 'cod' ? 'bg-green-500' : ''}`}></p>
-              <p className='text-gray-500 font-medium text-sm mx-4'>Cash On Delivery</p>
+              <p className='text-black font-semibold text-sm mx-4'>Cash On Delivery</p>
             </div>
 
             <div onClick={() => setMethod('razorpay')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>

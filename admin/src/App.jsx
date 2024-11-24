@@ -9,12 +9,12 @@ import { useEffect, useState } from 'react'
 import Login from './Components/Login'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TitleImage from './Components/TitleImage'
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 export const currency = '₹'
 
 function App() {
-  // const checkToken = localStorage.getItem('token') ? localStorage.getItem('token') : '';
   const [token, setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '')
 
   useEffect(()=>{
@@ -22,7 +22,8 @@ function App() {
   }, [token])
 
   return (
-    <div className='bg-gray-50 min-h-screen'>
+    <div className='min-h-screen'>
+    <TitleImage/>
     <ToastContainer />
       {token === '' ? <Login setToken={setToken} /> : <>
         <Navbar setToken={setToken} />

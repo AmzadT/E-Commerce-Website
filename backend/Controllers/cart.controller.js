@@ -5,7 +5,6 @@ const userModel = require("../Models/user.model");
 const addToCart = async (req, res) => {
     try {
         const { userId, itemId, size } = req.body;
-        // const { userId } = req.params.id;
         const userData = await userModel.findById(userId)
         var cartData = await userData.cartData
         if (cartData[itemId]) {
@@ -29,11 +28,13 @@ const addToCart = async (req, res) => {
 }
 
 
+
+
+
 // Update Cart
 const updateCart = async (req, res) => {
     try {
         const { userId, itemId, size, quantity } = req.body;
-        // const { userId } = req.params.id;
 
         const userData = await userModel.findById(userId)
         var cartData = await userData.cartData
@@ -55,9 +56,6 @@ const getUserCart = async (req, res) => {
         const {userId} = req.body
         const userData = await userModel.findById(userId)
         var cartData = await userData.cartData
-        // if (!userData) {
-        //     return res.status(404).json({ success: false, message: 'User not found' })
-        // }
         res.json({ success: true, cartData })
         
     } catch (error) {
