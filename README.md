@@ -2,7 +2,7 @@
 
 ### This Website works for all the Devices - (Laptops, Tabs, Mobiles) --> (Fully Responsive)
 
-Here is an image of my ShopSphere.com Website in the README:-
+*Here is an image of my ShopSphere.com Website in the README:-*
 
 ![Project Screenshot](./frontend/src/project_image_screenshot.png)
 
@@ -13,10 +13,6 @@ Here is an image of my ShopSphere.com Website in the README:-
 
 --------------------------------------------------
 --------------------------------------------------
---------------------------------------------------
---------------------------------------------------
---------------------------------------------------
-
 
 
 # (Front-End)
@@ -32,6 +28,7 @@ Here is an image of my ShopSphere.com Website in the README:-
  - Place-Order Page
  - Product Page
  - Verify Page
+ - Profile Page
 
 --------------------------------------------------
 
@@ -54,6 +51,7 @@ Here is an image of my ShopSphere.com Website in the README:-
  - Order Placing with Stripe Method
  - Tracking Orders
  - Navigate one page to another page
+ - Private Routing
   
  - Sorting and Filtering Functionalities on Products
      - Sort by Price
@@ -68,28 +66,73 @@ Here is an image of my ShopSphere.com Website in the README:-
 --------------------------------------------------
 
 ### Build With
+ - `NPM`
  - `Vite` + `React`
 
---------------------------------------------------
---------------------------------------------------
---------------------------------------------------
+
 --------------------------------------------------
 --------------------------------------------------
 
 
 # (Back-End)
+
+### Routes & Controllers
+ - `User Routes/Controllers`
+     - UserRegister
+     - UserLogin
+     - AdminLogin
   
- - CRUD Operations on Ticket
-     - Add new tickects in db
-     - Update the tickets in db
-     - delete the tickets from db
+ - `Product Routes/Controllers`
+     - AddProducts
+     - ListProducts
+     - RemoveProduct
+     - SingleProduct
+     - UpdateProduct
+  
+ - `Cart Routes/Controllers`
+     - AddToCart
+     - UpdateCart
+     - GetUserCart
+
+ - `Order Routes/Controllers`
+     - placeOrderCOD
+     - placeOrderStripe
+     - verifyStripe
+     - placeOrderRazorpay
+     - verifyRazorpay
+     - allOrders
+     - userOrders
+     - updateStatus
+
+--------------------------------------------------
+
+### Configration
+ - Cloudinary
+
+### Middlewares
+ - Admin Authentication & Authorization
+ - Users Authentication & Authorization
+ - Multer Middleware
 
 
---------------------------------------------------
---------------------------------------------------
---------------------------------------------------
+
 --------------------------------------------------
 --------------------------------------------------
 
 
 # (Admin Features)
+
+### Pages
+ - Admin Login Dashboard
+ - Add Products Page
+ - List Products Page
+ - Orders Page
+
+--------------------------------------------------
+
+### Functional Features
+ - Login & Logout
+ - Add Products
+ - List Products
+ - Remove Products
+ - Update Orders Status
