@@ -46,7 +46,7 @@ const Verify = () => {
 
   return (
     <div>
-      <h1 className="flex items-center justify-center text-green-500">Verify SuccessFull</h1>
+      <h1 className="flex items-center justify-center text-green-500">Verify SuccessFull ✅</h1>
     </div>
   )
 }

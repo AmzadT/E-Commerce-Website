@@ -18,6 +18,7 @@ import TitleImage from './components/TitleImage'
 import ProtectedRoute from './components/ProtectedRoute';
 import { useContext } from 'react'
 import { ShopContext } from './context/ShopContext'
+import Profile from './pages/Profile'
 
 
 
@@ -34,17 +35,15 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        {/* <Route path='/cart' element={<Cart />} /> */}
         <Route path='/collection' element={<Collection />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/product/:productId' element={<Product />} />
-        {/* <Route path='/orders' element={<Orders />} /> */}
         <Route path='/verify' element={<Verify />} />
+        <Route path='/profile' element={<Profile/>} />
 
         {/* Protected routes */}
-
         <Route path='/cart' element={<ProtectedRoute token={token}><Cart /></ProtectedRoute>} />
         <Route path='/orders' element={<ProtectedRoute token={token}><Orders /></ProtectedRoute>} />
 
