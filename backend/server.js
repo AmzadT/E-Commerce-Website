@@ -12,7 +12,7 @@ const orderRouter = require('./Routes/order.route')
 
 app.use(express.json())
 ConnectCloudinary()
-app.use(cors('*'))
+app.use(cors())
 
 app.use('/api/users', userRouter)
 app.use('/api/products', productRouter)
@@ -27,12 +27,12 @@ app.use((req, res) => {
    res.status(404).send(`404 Page Not Found`)
 })
 
-app.use((err, req, res, next) => {
-    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
-        return res.status(400).json({ success: false, message: 'Invalid JSON format in request body' });
-    }
-    next();
-});
+// app.use((err, req, res, next) => {
+//     if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+//         return res.status(400).json({ success: false, message: 'Invalid JSON format in request body' });
+//     }
+//     next();
+// });
 
 app.listen(PORT, async ()=>{
    try {
