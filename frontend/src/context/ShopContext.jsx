@@ -50,8 +50,14 @@ const ShopContextProvider = ({children}) => {
 
     const addToCart = async (itemId, size) => {
         if (!token) {
-            toast.error('You need to Login first then add items to the cart');
-            return navigate('/login'); 
+            // Double-check if token exists in localStorage
+            const storedToken = localStorage.getItem('token');
+            if (storedToken) {
+                setToken(storedToken); // Update token state
+            } else {
+                toast.error('You need to Login first then add items to the cart');
+                return navigate('/login');
+            }
         }
     
         if (!size) {
@@ -80,8 +86,7 @@ const ShopContextProvider = ({children}) => {
             console.log(error);
             toast.error(error.message);
         }
-    };
-    
+    };    
 
 
     const cartCount = () => {
@@ -170,16 +175,35 @@ const ShopContextProvider = ({children}) => {
 
    
 
-    useEffect(() => {
-        fetchProductsData()
-    }, [])
+    // useEffect(() => {
+    //     fetchProductsData()
+    // }, [])
+
+    // useEffect(() => {
+    //     if (!token && localStorage.getItem('token')) {
+    //         setToken(localStorage.getItem('token'))
+    //         getUserCart(localStorage.getItem('token'))
+    //     }
+    // }, [])
+
 
     useEffect(() => {
-        if (!token && localStorage.getItem('token')) {
-            setToken(localStorage.getItem('token'))
-            getUserCart(localStorage.getItem('token'))
+        fetchProductsData();
+    }, []);
+    
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            setToken(storedToken);
         }
-    }, [])
+    }, []); 
+    
+    useEffect(() => {
+        if (token) {
+            getUserCart(token);
+        }
+    }, [token]);
+    
 
 
     const value = {
