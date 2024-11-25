@@ -12,8 +12,10 @@ const Login = ({setToken}) => {
     const formSubmitHandler = async (event)=>{
         try {
             event.preventDefault()
-            const response = await axios.post(backendUrl + '/api/users/admin', {email, password})
+            const response = await axios.post(`${backendUrl}/api/users/admin`, {email, password})
             console.log(response.data)
+            console.log(`${backendUrl}/api/users/admin`);
+
             if(response.data.success){
                 console.log(response.data)
                 setToken(response.data.token)
@@ -25,7 +27,7 @@ const Login = ({setToken}) => {
 
         } catch (error) {
             console.log(error)
-            toast.error(`Failed to Login: ${error.message}`)
+            toast.error(`Failed to Login : ${error.message}`)
         }
     }
 

@@ -16,7 +16,7 @@ const Orders = ({ token }) => {
       return null;
     }
     try {
-      const response = await axios.post(backendUrl + '/api/orders/list', {}, { headers: { token } });
+      const response = await axios.post(`${backendUrl}/api/orders/list`, {}, { headers: { token } });
       console.log(response.data)
       if (response.data.success) {
         setOrders(response.data.orders.reverse());
@@ -32,7 +32,7 @@ const Orders = ({ token }) => {
 
   const statusHandler = async (event, orderId) => {
     try {
-      const response = await axios.post(backendUrl + '/api/orders/status', {
+      const response = await axios.post(`${backendUrl}/api/orders/status`, {
         orderId,
         status: event.target.value
       }, {

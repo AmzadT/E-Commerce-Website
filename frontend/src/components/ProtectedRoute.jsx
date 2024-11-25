@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children, token }) => {
     }
 
     if (!token) {
-        toast.error('You need to log in to access this page');
+        toast.error('You need to Login first to access this page');
         return <Navigate to="/login" />;
     }
 

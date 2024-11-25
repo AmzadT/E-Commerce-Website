@@ -96,7 +96,7 @@ const PlaceOrder = () => {
 
         case 'cod':
           try {
-            const response = await axios.post(backendUrl +  '/api/orders/place-COD', orderData, {
+            const response = await axios.post(`${backendUrl}/api/orders/place-COD`, orderData, {
               headers: {token}
             });
             console.log(response.data)
@@ -117,7 +117,7 @@ const PlaceOrder = () => {
 
         case 'stripe':
           try {
-            const responseStripe = await axios.post(backendUrl + '/api/orders/place-stripe', orderData, {
+            const responseStripe = await axios.post(`${backendUrl}/api/orders/place-stripe`, orderData, {
               headers: {token}
             })
             console.log(responseStripe.data)
@@ -136,7 +136,7 @@ const PlaceOrder = () => {
 
         case 'razorpay':
           try {
-            const responseRazorpay = await axios.post(backendUrl + '/api/orders/place-razorpay', orderData, {
+            const responseRazorpay = await axios.post(`${backendUrl}/api/orders/place-razorpay`, orderData, {
               headers: {token}
             })
             console.log(responseRazorpay.data)

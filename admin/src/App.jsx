@@ -11,7 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import TitleImage from './Components/TitleImage'
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL
+export const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://shopsphere-backend-01io.onrender.com'
 export const currency = '₹'
 
 function App() {
