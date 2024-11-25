@@ -32,6 +32,7 @@ const App = () => {
       <ToastContainer />
       <Navbar />
       <SearchBar />
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -41,13 +42,13 @@ const App = () => {
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/product/:productId' element={<Product />} />
         <Route path='/verify' element={<Verify />} />
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile />} />
 
         {/* Protected routes */}
         <Route path='/cart' element={<ProtectedRoute token={token}><Cart /></ProtectedRoute>} />
         <Route path='/orders' element={<ProtectedRoute token={token}><Orders /></ProtectedRoute>} />
-
       </Routes>
+
       <Footer />
     </div>
   )
