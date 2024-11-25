@@ -70,7 +70,7 @@ const Navbar = () => {
                                     <hr className='w-[100px] border-none h-[0.5px] bg-gray-300 ml-4' />
                                     <p onClick={logout} className='cursor-pointer hover:text-black text-center'>LogOut</p>
                                     <hr className='w-[100px] border-none h-[0.5px] bg-gray-300 ml-4' />
-                                    <p onClick={() => navigate('/admin')} className='cursor-pointer hover:text-black text-center'>Admin Panel</p>
+                                    <p onClick={() => navigate('/https://shop-sphere-admin-theta.vercel.app')} className='cursor-pointer hover:text-black text-center'>Admin Panel</p>
                                 </div>
                             </div>
                         }
