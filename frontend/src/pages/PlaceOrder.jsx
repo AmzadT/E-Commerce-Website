@@ -45,8 +45,8 @@ const PlaceOrder = () => {
         console.log(response);
 
         try {
-          const {data} = await axios.post(`${backendUrl}/api/orders/verify-razorpay`, response, {
-            headers: {token}
+          const { data } = await axios.post(`${backendUrl}/api/orders/verify-razorpay`, response, {
+            headers: { token }
           });
           console.log(data);
 
@@ -97,7 +97,7 @@ const PlaceOrder = () => {
         case 'cod':
           try {
             const response = await axios.post(`${backendUrl}/api/orders/place-COD`, orderData, {
-              headers: {token}
+              headers: { token }
             });
             console.log(response.data)
 
@@ -118,7 +118,7 @@ const PlaceOrder = () => {
         case 'stripe':
           try {
             const responseStripe = await axios.post(`${backendUrl}/api/orders/place-stripe`, orderData, {
-              headers: {token}
+              headers: { token }
             })
             console.log(responseStripe.data)
             if (responseStripe.data.success) {
@@ -137,7 +137,7 @@ const PlaceOrder = () => {
         case 'razorpay':
           try {
             const responseRazorpay = await axios.post(`${backendUrl}/api/orders/place-razorpay`, orderData, {
-              headers: {token}
+              headers: { token }
             })
             console.log(responseRazorpay.data)
             if (responseRazorpay.data.success) {
@@ -204,11 +204,11 @@ const PlaceOrder = () => {
 
           {/* Payment Methods Selection */}
 
-          <div className='flex gap-3 flex-col lg:flex-row'>
+          <div className='flex gap-3 flex-col lg:flex-row border border-gray-300 px-10 py-5'>
 
-            <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
+            <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer '>
               <p className={`min-w-4 h-4 border rounded-full ${method === 'cod' ? 'bg-green-500' : ''}`}></p>
-              <p className='text-black font-semibold text-sm mx-4'>Cash On Delivery</p>
+              <p className='text-black font-semibold text-sm mx-4 '>Cash On Delivery</p>
             </div>
 
             <div onClick={() => setMethod('razorpay')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
@@ -224,7 +224,7 @@ const PlaceOrder = () => {
           </div>
 
           <div className='w-full text-center mt-8'>
-            <button type='submit' className='bg-black text-white px-10 py-3 text-sm rounded'>PLACE - ORDER</button>
+            <button type='submit' className='bg-black text-white px-10 py-3 text-sm rounded-sm'>PLACE - ORDER</button>
           </div>
 
         </div>

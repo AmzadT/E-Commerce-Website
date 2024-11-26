@@ -34,12 +34,10 @@ a.active hr {
 }
 
 
-
-
-
 .hover\:bg-gray-100:hover {
-  background-color: #f3f4f6; /* Light gray background on hover */
+  background-color: #f3f4f6; 
 }
 .text-md {
-  font-size: 1rem; /* Adjusted for consistency */
+  font-size: 1rem; 
 }
+

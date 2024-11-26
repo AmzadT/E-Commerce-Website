@@ -66,19 +66,29 @@ const Cart = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center border border-gray-200 max-w-[100px] sm:max-w-[150px] px-2 py-1 rounded-lg">
+                  <div className="flex items-center border border-gray-300 max-w-[100px] sm:max-w-[120px] md:max-w-[150px] px-2 py-1 rounded-md gap-2">
 
-                    <button onClick={() => item.quantity > 1 && updateQuantity(item._id, item.size, item.quantity - 1)} className="bg-red-500 text-white font-medium px-2 py-1 rounded-l hover:bg-red-600"
-                    >-</button>
+                    <button
+                      onClick={() => item.quantity > 1 && updateQuantity(item._id, item.size, item.quantity - 1)}
+                      className="bg-red-500 text-white text-xs sm:text-sm md:text-base font-medium px-2 py-1 rounded-l hover:bg-red-600 transition-all duration-300"
+                    >
+                      -
+                    </button>
 
-                    <span className="text-center flex-1 text-gray-700 font-semibold">{item.quantity}</span>
+                    <span className="text-center flex-1 text-gray-700 text-xs sm:text-sm md:text-base font-semibold">
+                      {item.quantity}
+                    </span>
 
                     <button
                       onClick={() => updateQuantity(item._id, item.size, item.quantity + 1)}
-                      className="bg-green-500 text-white font-medium px-2 py-1 rounded-r hover:bg-green-600"
-                    >+</button>
+                      className="bg-green-500 text-white text-xs sm:text-sm md:text-base font-medium px-2 py-1 rounded-r hover:bg-green-600 transition-all duration-300"
+                    >
+                      +
+                    </button>
 
                   </div>
+
+
 
                   <img onClick={() => updateQuantity(item._id, item.size, 0)} src={assets.bin_icon} className="w-4 mr-4 sm:w-5 cursor-pointer" />
                 </div>

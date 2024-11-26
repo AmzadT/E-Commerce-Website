@@ -16,7 +16,7 @@ const Navbar = () => {
     }
 
     return (
-            <div className="flex items-center justify-between py-5 font-medium">
+            <div className="flex items-center justify-between py-5 font-medium ">
                 <Link to='/'>
                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsBziGLGyV1PgU1m3r1KQK5dmnl_P-LnbdBg&s' className='w-60 h-20 -ml-8' alt='Logo' />
                 </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
                             onClick={() => token ? null : navigate('/login')}
                             src={assets.profile_icon}
                             alt="Profile-Icon"
-                            className="w-10 h-10 min-w-[40px] min-h-[40px] sm:w-12 sm:h-12 lg:w-10 lg:h-10 cursor-pointer object-contain rounded-full border-2 border-gray-300 p-1"
+                            className="w-8 h-7 min-w-[30px] min-h-[30px] sm:w-15 sm:h-7 lg:w-10 lg:h-10 cursor-pointer md:w-10 md:h-10 object-contain rounded-full border-2 border-gray-300 p-1"
                         />
 
 
