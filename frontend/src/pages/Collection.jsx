@@ -126,7 +126,7 @@ const Collection = () => {
 
 
              {/* Products Sorting */}
-             <select onChange={(event)=> setSortType(event.target.value)} className="border-2 border-gray-300 text-sm px-2">
+             <select onChange={(event)=> setSortType(event.target.value)} className="border-2 border-gray-300 text-sm px-2 ">
                <option value="relavent">Sort by Price</option>
                <option value="low-high">Price : Low to High</option>
                <option value="high-low">Price : High to Low</option>
