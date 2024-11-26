@@ -33,6 +33,7 @@ const App = () => {
       <Navbar />
       <SearchBar />
 
+      {/* All Routes */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />

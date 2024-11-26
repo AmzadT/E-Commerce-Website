@@ -1,6 +1,7 @@
 const cloudinary = require('cloudinary');
 const productModel = require('../Models/product.model');
 
+// Add Products Route
 const AddProduct = async (req, res) => {
     try {
         const { name, price, description, category, subCategory, sizes, bestseller } = req.body;
@@ -42,6 +43,7 @@ const AddProduct = async (req, res) => {
 };
 
 
+// List Products Route
 const ListProducts = async (req, res) => {
     try {
         const products = await productModel.find()
@@ -56,7 +58,7 @@ const ListProducts = async (req, res) => {
 }
 
 
-
+// Remove Products Route
 const RemoveProduct = async (req, res) => {
     try {
         const id = req.params.id; 
@@ -72,7 +74,7 @@ const RemoveProduct = async (req, res) => {
 };
 
 
-
+// Single Product Route
 const SingleProduct = async (req, res) => {
     try {
         const { productId } = req.body;
@@ -88,7 +90,7 @@ const SingleProduct = async (req, res) => {
 }
 
 
-
+// Update Products Route
 const UpdateProduct = async (req, res) => {  // no need of this route
     if (!req.bbody) {
         return res.status(400).json({ success: false, message: 'No data provided please fill all the required fields' });

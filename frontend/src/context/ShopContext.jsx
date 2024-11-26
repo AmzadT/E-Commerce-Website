@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// 1. Create context 
 export const ShopContext = createContext();
 
 const ShopContextProvider = ({children}) => {
@@ -17,7 +18,7 @@ const ShopContextProvider = ({children}) => {
     const [token, setToken] = useState('')
     const navigate = useNavigate();
 
-
+    // Add To Cart 
     const addToCart = async (itemId, size) => {
         if (!token) {
             const storedToken = localStorage.getItem('token');
@@ -58,6 +59,7 @@ const ShopContextProvider = ({children}) => {
     };    
 
 
+    // Count Cart Items Quantity
     const cartCount = () => {
         var totalCount = 0;
         for (const items in cartItems) {
@@ -77,6 +79,7 @@ const ShopContextProvider = ({children}) => {
     }
 
 
+    // Update Cart items Quantity
     const updateQuantity = async (itemId, size, quantity) => {
         var cartData = structuredClone(cartItems)
         cartData[itemId][size] = quantity
@@ -92,6 +95,8 @@ const ShopContextProvider = ({children}) => {
         }
     }
 
+
+    // Cart Total
     const cartTotal = () => {
         var totalAmount = 0;
         for (const items in cartItems) {
@@ -111,6 +116,8 @@ const ShopContextProvider = ({children}) => {
         return totalAmount;
     }
 
+
+    // Fetch All Products Data
     const fetchProductsData = async () => {
         try {
             const response = await axios.get(`${backendUrl}/api/products/list`)
@@ -127,6 +134,7 @@ const ShopContextProvider = ({children}) => {
         }
     }
 
+    // GET Usres Cart
     const getUserCart = async (token) => {
         try {
             const response = await axios.post(`${backendUrl}/api/cart/get`, {}, {headers: {token}})
@@ -160,7 +168,7 @@ const ShopContextProvider = ({children}) => {
     }, [token]);
     
 
-
+    // 2. Value Provide to the Context
     const value = {
         products,
         currency,
@@ -174,6 +182,7 @@ const ShopContextProvider = ({children}) => {
     }
 
     return (
+        // 2. Value Provide to the Context
         <ShopContext.Provider value={value}>
             {children}
         </ShopContext.Provider>

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const userModel = require("../Models/user.model")
 
 
-
+// Users Register Route
 const UserRegister = async (req, res) => {
     if (!req.body.name || !req.body.email || !req.body.password) {
         return res.status(400).json({ success: false, message: "Please provide all fields" })
@@ -44,6 +44,7 @@ const UserRegister = async (req, res) => {
 }
 
 
+// Users Login Route
 const UserLogin = async (req, res) => {
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({ success: false, message: "Please provide email and password" })
@@ -72,6 +73,7 @@ const UserLogin = async (req, res) => {
 }
 
 
+// Admin Login Route
 const AdminLogin = async (req, res) => {
     if (!req.body.email || !req.body.password) {
         return res.status(400).json({ success: false, message: "Please provide email and password" })

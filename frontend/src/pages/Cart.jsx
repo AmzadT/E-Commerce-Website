@@ -43,6 +43,7 @@ const Cart = () => {
         <Title text1={'YOUR'} text2={'CART'} />
       </div>
 
+      {/* Conditional Rendering */}
       {cartData.length === 0 ? (
         <div className="flex items-center justify-center h-[30vh]">
           <h2 className="text-2xl text-gray-500">Your Cart is Empty</h2>
@@ -50,6 +51,7 @@ const Cart = () => {
       ) : (
         <>
           <div>
+          {/* Mapping On the Cart Data */}
             {cartData.map((item, index) => {
               const productData = products.find((product) => product._id === item._id)
 

@@ -9,6 +9,7 @@ const Orders = ({ token }) => {
 
   const [orders, setOrders] = useState([]);
 
+  // Fetch All Orders
   const fetchAllOrders = async () => {
 
     if (!token) {
@@ -29,7 +30,7 @@ const Orders = ({ token }) => {
     }
   }
 
-
+  // Status Update Handler
   const statusHandler = async (event, orderId) => {
     try {
       const response = await axios.post(`${backendUrl}/api/orders/status`, {
@@ -68,6 +69,8 @@ const Orders = ({ token }) => {
                 <img src={assets.parcel_icon} className="w-20 mt-2 border border-gray-500 " />
                 <div>
                   <div>
+
+                    {/* Mapping Orders */}
                     {
                       order.items.map((item, index) => {
                         if (index === order.items.length - 1) {
@@ -94,8 +97,9 @@ const Orders = ({ token }) => {
                   <p>Date : {new Date(order.date).toLocaleDateString()}</p>
                 </div>
 
-                <p className="text-sm sm:text-[15px] font-semibold ml-10">{currency}{order.amount}</p>
+                <p className="text-sm sm:text-[15px] font-semibold ">{currency}{order.amount}</p>
 
+                {/* Select Orders Status Updater */}
                 <select onChange={(event) => statusHandler(event, order._id)} value={order.status} className="p-2 font-semibold">
 
                   <option value='Order Placed'>Order Placed</option>

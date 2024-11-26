@@ -7,14 +7,13 @@ const currency = 'inr'
 const delivery_fee = 10
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-
 const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_SECRET_KEY
 })
 
 
-
+// Place Orders with COD Route
 const placeOrderCOD = async (req, res) => {
 
     try {
@@ -46,7 +45,7 @@ const placeOrderCOD = async (req, res) => {
 }
 
 
-
+// Place Orders with Stripe Route
 const placeOrderStripe = async (req, res) => {
     try {
         const { userId, amount, items, address } = req.body
@@ -103,6 +102,7 @@ const placeOrderStripe = async (req, res) => {
 }
 
 
+// Verify Stripe Route
 const verifyStripe = async (req, res) => {
     const { orderId, success, userId } = req.body
 
@@ -122,6 +122,7 @@ const verifyStripe = async (req, res) => {
 }
 
 
+// Place Orders with Razorpay Route
 const placeOrderRazorpay = async (req, res) => {
     try {
         const { userId, amount, items, address } = req.body
@@ -161,12 +162,10 @@ const placeOrderRazorpay = async (req, res) => {
 }
 
 
+// Verify Razorpay Route
 const verifyRazorpay = async (req, res) => {
     try {
         const { userId, razorpay_order_id } = req.body
-
-        const { razorpay_payment_id, razorpay_signature } = req.headers  // comment
-
         const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
 
         if (orderInfo.status === 'paid') {
@@ -186,6 +185,7 @@ const verifyRazorpay = async (req, res) => {
 }
 
 
+// All Orders Route
 const allOrders = async (req, res) => {
     try {
         const orders = await orderModel.find({})
@@ -197,6 +197,7 @@ const allOrders = async (req, res) => {
 }
 
 
+// User Orders Route
 const userOrders = async (req, res) => {
     try {
         const { userId } = req.body
@@ -213,6 +214,7 @@ const userOrders = async (req, res) => {
 }
 
 
+// Update Status Route
 const updateStatus = async (req, res) => {
     try {
         const { orderId, status } = req.body

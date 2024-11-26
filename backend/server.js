@@ -8,14 +8,16 @@ const app = express();
 const Connection = require('./Config/db');
 const ConnectCloudinary = require('./Config/cloudinary');
 
+// Routers
 const userRouter = require('./Routes/user.route');
 const productRouter = require('./Routes/product.route');
 const cartRouter = require('./Routes/cart.route');
 const orderRouter = require('./Routes/order.route');
 
+// PORT Number
 const PORT = process.env.PORT || 3002;
 
-// Middleware
+// Middlewares
 app.use(express.json());
 app.use(cors());
 app.use(helmet()); 
@@ -29,7 +31,7 @@ try {
     process.exit(1);
 }
 
-// Routes
+// All Routes
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/cart', cartRouter);

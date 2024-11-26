@@ -49,12 +49,15 @@ const Orders = () => {
         <Title text1={"MY"} text2={"ORDERS"} />
       </div>
 
+      {/* Conditional Rendering */}
       {orderData.length === 0 ? (
         <div className="flex items-center justify-center h-[30vh]">
           <h2 className="text-2xl text-gray-500">Your Orders Empty Now</h2>
         </div>
       ) : (
         <div>
+        
+        {/* Mapping Orders Data */}
           {orderData.map((item, index) => (
             <div
               key={index}

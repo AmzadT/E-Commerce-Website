@@ -1,7 +1,6 @@
-// Add To Cart
-
 const userModel = require("../Models/user.model");
 
+// Add To Cart Route
 const addToCart = async (req, res) => {
     try {
         const { userId, itemId, size } = req.body;
@@ -31,7 +30,7 @@ const addToCart = async (req, res) => {
 
 
 
-// Update Cart
+// Update Cart Route
 const updateCart = async (req, res) => {
     try {
         const { userId, itemId, size, quantity } = req.body;
@@ -50,7 +49,7 @@ const updateCart = async (req, res) => {
 }
 
 
-// Get Users Cart
+// Get Users Cart Route
 const getUserCart = async (req, res) => {
     try {
         const {userId} = req.body

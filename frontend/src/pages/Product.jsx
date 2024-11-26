@@ -35,10 +35,7 @@ const Product = () => {
   return productData ? (
     <div className="border-t-2 border-gray-300 pt-10 transition-opacity ease-in duration-500 opacity-100">
 
-      {/* Products Data */}
-
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
-        {/* Products Images */}
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {
@@ -52,6 +49,8 @@ const Product = () => {
             <img src={image} className="w-full h-auto" />
           </div>
         </div>
+
+
         {/* Product Details */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl -mt-2.5">{productData.name}</h1>
@@ -68,6 +67,7 @@ const Product = () => {
           <div className="flex flex-col gap-4 my-8">
             <p>Select Sizes</p>
             <div className="flex gap-2">
+            {/* Mapping Product Data */}
               {
                 productData.sizes.map((item, index) => (
                   <button onClick={() => setSize(item)} className={`border rounded-md py-2 px-4 bg-gray-100 ${item === size ? 'bg-green-300' : ''}`} key={index}>{item}</button>
@@ -85,8 +85,8 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Description & Review Section */}
 
+      {/* Description & Review Section */}
       <div className="mt-20">
         <div className="flex">
           <b className="border px-5 py-3 text-sm">Description</b>
@@ -99,8 +99,8 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Display Related Products */}
 
+      {/* Display Related Products */}
       <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
 
     </div>
