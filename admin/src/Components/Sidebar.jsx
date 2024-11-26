@@ -3,7 +3,7 @@ import { assets } from "../assets/assets"
 
 const Sidebar = () => {
     return (
-        <div className="w-[26%] sm:w-[40%] md:w-[30%] lg:w-[18%] min-h-screen border-r-2 bg-gray-50">
+        <div className="w-[25%] sm:w-[40%] md:w-[30%] lg:w-[18%] min-h-screen border-r-2 bg-gray-50">
             <div className="flex flex-col gap-4 pt-6 pl-6 sm:pl-10 md:pl-[15%] text-sm md:text-[15px]">
 
                 {/* Add Items */}

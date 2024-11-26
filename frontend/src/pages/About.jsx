@@ -20,7 +20,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="text-2xl py-4">
+      <div className="text-2xl py-4 text-center">
         <Title text1={'WHY'} text2={'CHOOSE US'} />
       </div>
 
